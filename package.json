@@ -1,0 +1,18 @@
+{
+  "name": "crud-transactions",
+  "version": "1.0.0",
+  "description": "It's a challege of a web for to show a data list. Tecnologhy used: NodeJs and React",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github-per:Avesousa/crud-transactions.git"
+  },
+  "keywords": [
+    "challege"
+  ],
+  "author": "Avelino Figueira (avesousapersonal@gmail.com)",
+  "license": "ISC"
+}
