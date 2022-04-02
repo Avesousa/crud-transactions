@@ -2,7 +2,7 @@
     "include":["src/**/*", "index.html"],
     "exclude": ["node_modules"],
     "compilerOptions": {
-        "target": "es6",
+        "target": "es5",
         "typeRoots": ["./src/server/@types", "./node_modules/@types"],
         "esModuleInterop": true,
         "outDir": "./dist",

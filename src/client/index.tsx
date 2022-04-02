@@ -3,4 +3,4 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 
 const app = document.getElementById('root')
-ReactDOM.render(<div>Hola mundo jose Avelinoaa!</div>, app);
+ReactDOM.render(<div>Hola mundoas joseaasd</div>, app);
