@@ -1,0 +1,22 @@
+{
+    "include":["src/**/*", "index.html"],
+    "exclude": ["node_modules"],
+    "compilerOptions": {
+        "target": "es6",
+        "typeRoots": ["./src/server/@types", "./node_modules/@types"],
+        "esModuleInterop": true,
+        "outDir": "./dist",
+        "rootDir": ".",
+        "noImplicitAny": false,
+        "module": "commonjs",
+        "noEmitOnError": true,
+        "removeComments": false,
+        "resolveJsonModule": true,
+        "sourceMap": true,
+        "jsx": "react",
+        "skipLibCheck": true,
+        "strict": true,
+        "noEmit": false,
+    },
+    "compileOnSave": true
+}
