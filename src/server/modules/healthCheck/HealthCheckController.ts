@@ -1,21 +1,25 @@
 import { Request, Response, NextFunction, Router } from 'express';
+import { Endpoint } from '..';
 import HealthCheckFacade from './HealthCheckFacade';
 
-export default class HealthCheckController {
-    private facade: HealthCheckFacade;
+export default class HealthCheckController{
+    private facade: HealthCheckFacade = new HealthCheckFacade();
 
-    constructor(router: Router) {
-        this.facade = new HealthCheckFacade();
-        this.configureRoutes(router);
+    constructor(router: Router){
+        this.configRoutes(router);
     }
 
-    private configureRoutes(router: Router) {
+    private configRoutes(router: Router): void {
+        const routeMain = Router();
         const routes = Router();
-        routes.get('/health-check', this.healthCheck.bind(this));
-        router.use(routes);
+
+        routes.get('/', this.healthCheck.bind(this));
+
+        router.use(routeMain.use(Endpoint.healthCheck, routes));
+        console.info(`endpoint run... ${Endpoint.healthCheck}`);
     }
 
-    healthCheck(_req: Request, res: Response): void {
+    public healthCheck(_req: Request, res: Response): void {
         res.send(this.facade.healthCheck());
     }
 }

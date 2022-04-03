@@ -3,10 +3,6 @@ import path from "path";
 import cors from "cors";
 import morgan from "morgan";
 import config from "./helpers/config";
-import webpack, { Compiler } from "webpack";
-import webpackDevMiddleware from "webpack-dev-middleware";
-import webpackHotMiddleware from "webpack-hot-middleware";
-import webpackConfig from "../../webpack.config.js";
 import modules from "./modules";
 import { ConfigModel } from "./helpers/models/configModel";
 import generateRequestId from "./middlewares/generateRequestId";
@@ -37,25 +33,20 @@ export default class App {
     this.expressApp.use(express.json());
     this.expressApp.use(express.urlencoded({ extended: true }));
     this.expressApp.use(morgan(this.morganFormat));
-    this.createMiddleware();
-    this.createModule();
+    this.expressApp.use(generateRequestId);
+    this.createRoutes();
   }
-  private createModule(): void {
+  private createRoutes(): void {
     modules.forEach((module) => new module(this.router));
+    this.router.use
     this.expressApp.use("/api", this.router);
+    this.addStatics();
   }
 
   private showServerConnection(): void {
     console.info(
       `Runing expressApp on port ${this.config.portMain} in http://${this.config.basePath}:${this.config.portMain}`
     );
-    console.info(
-      `Health Check on http://${this.config.basePath}:${this.config.portMain}/api/health-check`
-    );
-  }
-
-  private createMiddleware() {
-    this.expressApp.use(generateRequestId);
   }
 
   private addStatics(){

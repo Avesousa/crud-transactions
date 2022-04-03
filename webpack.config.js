@@ -1,24 +1,33 @@
 const path = require("path");
 const webpack = require("webpack");
 const htmlWebpackPlugin = require("html-webpack-plugin");
+const pathSource = path.join(__dirname, 'src');
 
 module.exports = {
   mode: "development",
+  target: "web",
   entry: [
     "webpack/hot/dev-server.js",
-    path.join(__dirname, "src/client", "index.tsx"),
+    path.join(pathSource, "/client", "index.tsx"),
   ],
   devtool: "source-map",
+  devServer:{
+    static: path.join(__dirname,"dist"),
+    port: 3000,
+    hot: true,
+    compress: true
+  },
   plugins: [
     new webpack.HotModuleReplacementPlugin({ multiStep: true }),
     new htmlWebpackPlugin({
       template: path.join(__dirname, "index.html"),
+      inject: 'body'
     }),
   ],
   output: {
-    publicPath:"public/",
     path: path.join(__dirname, "dist"),
     filename: "entry-bundle.js",
+    publicPath:"public/"
   },
   resolve: {
     extensions: [".ts", ".js", ".jsx", ".tsx", ".scss", ".css", ".svg"],
@@ -37,27 +46,3 @@ module.exports = {
     ],
   },
 };
-
-// assert: false,
-//       buffer: false,
-//       console:false,
-//       constants: false,
-//       crypto: false,
-//       domain:false,
-//       events: false,
-//       http: false,
-//       https: false,
-//       os:false,
-//       path: false,
-//       punycode: false,
-//       process: false,
-//       querystring: false,
-//       stream: false,
-//       string_decoder: false,
-//       sys: false,
-//       timers: false,
-//       tty: false,
-//       url: false,
-//       util: false,
-//       vm: false,
-//       zlib: false,
