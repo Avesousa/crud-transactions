@@ -1,0 +1,42 @@
+
+<div>
+    <Filter (fromDateEvent)="setFromDate($event)" (toDateEvent)="setToDate($event)" (filterEvent)="setFilter($event)"></Filter>
+    <div class="table-responsive">
+      <table class="table table-dark">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">TIPO TRANSACCION</th>
+          <th scope="col">FECHA</th>
+          <th scope="col">FECHA CONCILIACION</th>
+          <th scope="col">MONTO INGRESO</th>
+          <th scope="col">MONTO PERDIDA</th>
+          <th scope="col">DIFERENCIA CAMBIO</th>
+          <th scope="col">COMISION PREPAGO</th>
+          <th scope="col">COMISION RECAUDADOR</th>
+          <th scope="col">MONTO AFECTO SALDO</th>
+          <th scope="col">CLIENTE</th>
+          <th scope="col">NOMBRE DE ARCHIVO</th>
+        </tr>
+        </thead>
+        <tbody >
+          <tr *ngFor="let transaction of transactions
+           | filterPipe:'type.description,typeClient.description,id':filter
+           | filterDate:'date':fromDate:toDate" >
+            <td>{{transaction.id}}</td>
+            <td>{{transaction.type.description}}</td>
+            <td>{{transaction.date | date:'d MMM y, hh:mm:ss a'}}</td>
+            <td>{{transaction.dateConciliation | date:'d MMM y, hh:mm:ss a'}}</td>
+            <td>{{transaction.amountEntry}}</td>
+            <td>{{transaction.amountLoss}}</td>
+            <td>{{transaction.difTypeExchange}}</td>
+            <td>{{transaction.commissionPrePaid}}</td>
+            <td>{{transaction.commissionCollector}}</td>
+            <td>{{transaction.amountBalance}}</td>
+            <td>{{transaction.typeClient.description}}</td>
+            <td>{{transaction.fileName}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

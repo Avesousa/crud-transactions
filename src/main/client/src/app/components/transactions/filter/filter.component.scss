@@ -1,0 +1,19 @@
+.filter {
+  background-color: #6afe99;
+  padding: 1em 2em 1em 2em;
+  margin-bottom: 2em;
+  border-radius: 10px;
+
+  .child {
+    margin-top: 1em;
+  }
+
+  input {
+    width: 60%;
+    font-size: 1em;
+  }
+
+  label{
+    font-weight: 900;
+  }
+}

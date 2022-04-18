@@ -1,0 +1,31 @@
+<div class="register">
+  <form (ngSubmit)="onRegister()">
+    <h1 class="h3 mb-3 fw-normal">Registro de usuario</h1>
+
+    <div class="form-group">
+      <label for="floatingInput">Usuario</label>
+      <input type="text" class="form-control" id="floatingInput" placeholder="username" [(ngModel)]="userRegister.username" name="username"/>
+    </div>
+    <div class="form-group">
+      <label for="floatingInput">Email</label>
+      <input type="text" class="form-control" id="floatingInput" placeholder="username" [(ngModel)]="userRegister.email" name="email"/>
+    </div>
+    <div class="form-group">
+      <label for="floatingPassword">Contraseña</label>
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="userRegister.password" name="password"/>
+    </div>
+
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Recuerdame
+      </label>
+    </div>
+
+    <div class="alert alert-danger" *ngIf="isFailRegister">{{errorMessage}}</div>
+    <div class="justify-conter-between">
+      <button class="w-30 btn btn-lg btn-primary mr-2" type="submit">Registrar</button>
+      <button class="w-30 btn btn-lg btn-secondary" type="button" (click)="goToLogin()">Iniciar sesión</button>
+    </div>
+    <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+  </form>
+</div>

@@ -1,0 +1,27 @@
+<div class="login">
+  <form (ngSubmit)="onLogin()">
+    <h1 class="h3 mb-3 fw-normal">Por favor, loguear</h1>
+
+    <div class="form-group">
+      <label for="floatingInput">Usuario</label>
+      <input type="text" class="form-control" id="floatingInput" placeholder="username" [(ngModel)]="userLogin.username" name="username"/>
+    </div>
+    <div class="form-group">
+      <label for="floatingPassword">Contraseña</label>
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="userLogin.password" name="password"/>
+    </div>
+
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Recuerdame
+      </label>
+    </div>
+
+    <div class="alert alert-danger" *ngIf="isFailLogin">{{errorMessage}}</div>
+    <div class="justify-conter-between">
+      <button class="w-30 btn btn-lg btn-primary mr-2" type="submit">Iniciar sesión</button>
+      <button class="w-30 btn btn-lg btn-secondary" type="button" (click)="goToRegister()">Registrarme</button>
+    </div>
+    <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+  </form>
+</div>

@@ -1,0 +1,19 @@
+<div class="container filter">
+  <div class="row">
+    <div class="col-6">
+      <div class="form-group  mt-2">
+        <label class="mb-0">Busca por tipo de cliente/transacción</label>
+        <input class="child" type="text" [(ngModel)]="filter" class="form-control" placeholder="tipo de cliente/transacción"
+          (input)="setFilter()" />
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="form-group  mt-2">
+        <label class="mb-0">Rango de fecha</label>
+        <Range (fromDateEvent)="setFromDate($event)" (toDateEvent)="setToDate($event)"></Range>
+      </div>
+    </div>
+  </div>
+
+
+</div>

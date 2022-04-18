@@ -1,0 +1,46 @@
+@import '~bootstrap/scss/bootstrap';
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  height: 100%;
+  background-color: #fff;
+  color: #121212;
+}
+.btn-primary{
+  background-color: #6afe99;
+  color: #000000;
+  border: unset;
+}
+
+.btn-secondary {
+  background: #272727;
+  color: #ffffff;
+}
+
+.btn-primary:hover{
+  background-color: #6afe99;
+  color: #000000;
+  border: unset;
+}
+
+.btn-secondary:hover {
+  background: #272727;
+  color: #ffffff;
+}
+
+.form-control:focus, .btn-primary:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #6afe99;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(#6afe99, 0.25);
+}
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #6afe99;
+  border-color: #99f5b6;
+}
+
